@@ -1,11 +1,14 @@
 const form = document.querySelector('form#chrisForm') 
 const chrisList= document.querySelector('ul#chrises')
+let chrisArray=[]
 
 function renderListItem (data) {
     let name=''
     Object.keys(data).map(function(label){  //Object.keys returns array of the keys
         name+=data[label]+' '
     })
+    chrisArray.push(name)
+    console.log(chrisArray)
     const nameItem=document.createElement('li')
     nameItem.textContent=name
     return nameItem
