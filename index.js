@@ -2,11 +2,12 @@ const form = document.querySelector('form#chrisForm')
 const chrisList= document.querySelector('ul#chrises')
 let chrisArray=[]
 
-function deleteButton () {
-    const button = document.createElement('button')
-    button.setAttribute('button', button)
-    button.textContent='Remove'
-    return button
+function deleteButton (name) {
+    const removeButton = document.createElement('button')
+    removeButton.type = 'button'
+    removeButton.textContent='Remove'
+    removeButton.addEventListener('click', handleRemove)
+    return removeButton
 }
 
 function renderListItem (data) {
@@ -15,9 +16,9 @@ function renderListItem (data) {
         name+=data[label]+' '
     })
     chrisArray.push(name)
-    console.log(chrisArray)
     const nameItem=document.createElement('li')
     nameItem.textContent=name
+    nameItem.appendChild(deleteButton(name))
     return nameItem
 }  
    
@@ -29,13 +30,18 @@ const handleSubmit = function (ev) {
         firstName: form.firstName.value,
         lastName: form.lastName.value,
     }
-    const toAdd=renderListItem(chris)
-    toAdd.appendChild(deleteButton())
-    chrisList.appendChild(toAdd)
+    chrisList.appendChild(renderListItem(chris))
 
     form.reset()
     form.firstName.focus()
 }
 
+const handleRemove= function (ev) {
+    ev.preventDefault()
+    const button=ev.target
+    button.parentNode.remove()
+}
+
 
 form.addEventListener('submit', handleSubmit)
+
