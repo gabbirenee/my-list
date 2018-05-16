@@ -3,12 +3,26 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>my-list</title>
+    <title>Merry Chris-mas</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="index.css">
 </head>
 <body>
-    
+    <h1>A List of Famous People with the Name Chris</h1>
+    <form id='chrisForm'>
+        <p>
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" autofocus><br>
+        </p>
+        <p>
+            <label for='lastName'>Last Name</label>
+            <input type='text' name='lastName'>
+        </p>
+        <button type="submit">Submit</button>
+    </form>
+    <div id='chrisDiv'>
+        <ul id='chrises'></ul>
+    </div>
 
     <script src="index.js"></script>
 </body>
