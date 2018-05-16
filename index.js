@@ -2,6 +2,13 @@ const form = document.querySelector('form#chrisForm')
 const chrisList= document.querySelector('ul#chrises')
 let chrisArray=[]
 
+function deleteButton () {
+    const button = document.createElement('button')
+    button.setAttribute('button', button)
+    button.textContent='Remove'
+    return button
+}
+
 function renderListItem (data) {
     let name=''
     Object.keys(data).map(function(label){  //Object.keys returns array of the keys
@@ -22,8 +29,9 @@ const handleSubmit = function (ev) {
         firstName: form.firstName.value,
         lastName: form.lastName.value,
     }
-
-    chrisList.appendChild(renderListItem(chris))
+    const toAdd=renderListItem(chris)
+    toAdd.appendChild(deleteButton())
+    chrisList.appendChild(toAdd)
 
     form.reset()
     form.firstName.focus()
