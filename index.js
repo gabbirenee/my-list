@@ -35,16 +35,10 @@ const handleRemove= function (ev) {
     ev.preventDefault()
     const button=ev.target
     const toRemove=button.parentNode
-    // for(let i=0; i<chrisArray.length; i++)
-    // {
-    //     if(toRemove===chrisArray[i])
-    //     {
-    //         chrisArray.splice(i, 1)
-    //         break
-    //     }
-    // }
-    // console.log(chrisArray)
-    // toRemove.remove()
+    const index=chrisArray[toRemove]
+    chrisArray.splice(index, 1)
+    console.log(chrisArray)
+    toRemove.remove()
 }
 
 
