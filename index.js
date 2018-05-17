@@ -11,14 +11,11 @@ function deleteButton (name) {
 }
 
 function renderListItem (data) {
-    let name=''
-    Object.keys(data).map(function(label){  //Object.keys returns array of the keys
-        name+=data[label]+' '
-    })
-    chrisArray.push(name)
+    chrisArray.push(data)
     const nameItem=document.createElement('li')
-    nameItem.textContent=name
-    nameItem.appendChild(deleteButton(name))
+    nameItem.textContent=data
+    nameItem.appendChild(deleteButton(data))
+    console.log(chrisArray)
     return nameItem
 }  
    
@@ -26,10 +23,8 @@ function renderListItem (data) {
 const handleSubmit = function (ev) {
     ev.preventDefault()
     const form=ev.target
-    const chris = {
-        firstName: form.firstName.value,
-        lastName: form.lastName.value,
-    }
+    let chris = ''
+    chris=form.firstName.value +' '+ form.lastName.value
     chrisList.appendChild(renderListItem(chris))
 
     form.reset()
@@ -39,7 +34,17 @@ const handleSubmit = function (ev) {
 const handleRemove= function (ev) {
     ev.preventDefault()
     const button=ev.target
-    button.parentNode.remove()
+    const toRemove=button.parentNode
+    // for(let i=0; i<chrisArray.length; i++)
+    // {
+    //     if(toRemove===chrisArray[i])
+    //     {
+    //         chrisArray.splice(i, 1)
+    //         break
+    //     }
+    // }
+    // console.log(chrisArray)
+    // toRemove.remove()
 }
 
 
