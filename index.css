@@ -15,7 +15,7 @@ h1 {
 #chrisForm {
     background-color: blueviolet;
     border: 2px solid rgb(173, 124, 219);
-    padding: 1rem;
+    padding: 4rem;
     color: whitesmoke;
 }
 
@@ -40,4 +40,8 @@ button {
     border: blueviolet;
     font-size: 14px;
     color: black;
+}
+
+img {
+    padding: 2rem;
 }
